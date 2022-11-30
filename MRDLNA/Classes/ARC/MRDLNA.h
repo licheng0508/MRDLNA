@@ -24,6 +24,11 @@
  */
 - (void)dlnaStartPlay;
 
+/**
+ 获取当前进度
+ */
+- (void)getCurrentPostion:(CLUPnPAVPositionInfo *)info;
+
 @end
 
 @interface MRDLNA : NSObject
@@ -85,4 +90,9 @@
  播放切集
  */
 - (void)playTheURL:(NSString *)url;
+
+/**
+ 获取播放进度
+ */
+- (void)getCurrentPositionInfo;
 @end

@@ -138,6 +138,13 @@
     [self.render setAVTransportURL:url];
 }
 
+/**
+ 获取播放进度
+ */
+- (void)getCurrentPositionInfo{
+    [self.render getPositionInfo];
+}
+
 #pragma mark -- 搜索协议CLUPnPDeviceDelegate回调
 - (void)upnpSearchChangeWithResults:(NSArray<CLUPnPDevice *> *)devices{
     NSMutableArray *deviceMarr = [NSMutableArray array];
@@ -172,6 +179,13 @@
 - (void)upnpPlayResponse{
     if ([self.delegate respondsToSelector:@selector(dlnaStartPlay)]) {
         [self.delegate dlnaStartPlay];
+    }
+}
+
+- (void)upnpGetPositionInfoResponse:(CLUPnPAVPositionInfo *)info {
+//    NSLog(@"%.f === %.f === %.f", info.absTime, info.relTime, info.trackDuration);
+    if ([self.delegate respondsToSelector:@selector(getCurrentPostion:)]) {
+        [self.delegate getCurrentPostion:info];
     }
 }
 
