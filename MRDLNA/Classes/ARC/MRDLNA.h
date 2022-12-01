@@ -29,6 +29,11 @@
  */
 - (void)getCurrentPostion:(CLUPnPAVPositionInfo *)info;
 
+/**
+ 跳转到指定播放位置成功
+ */
+- (void)seekPostionSuccess;
+
 @end
 
 @interface MRDLNA : NSObject

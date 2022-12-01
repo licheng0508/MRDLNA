@@ -189,6 +189,12 @@
     }
 }
 
+- (void)upnpSeekResponse{
+    if ([self.delegate respondsToSelector:@selector(seekPostionSuccess)]) {
+        [self.delegate seekPostionSuccess];
+    }
+}
+
 #pragma mark Set&Get
 - (void)setSearchTime:(NSInteger)searchTime{
     _searchTime = searchTime;
